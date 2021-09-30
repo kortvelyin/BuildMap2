@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-using Google.XR.ARCoreExtensions;
+
 using UnityEngine.Networking;
 
 
@@ -19,7 +19,7 @@ public class ObjectSpawner : NetworkBehaviour
     // private int positionCount = 0;
     //private ARRaycastManager rayManager;
     ARAnchorManager m_AnchorManager;
-    private ARCloudAnchor _cloudAnchor;
+    
     int noOfGO=0;
     private int worked = 0;
     [SerializeField]
@@ -53,12 +53,7 @@ public class ObjectSpawner : NetworkBehaviour
         set => objectToSpawn = value;
     }
 
-    void ResolveCloudAnchor(string cloudAnchorId)
-    {
-        // Request the Cloud Anchor.
-        _cloudAnchor = ARAnchorManagerExtensions.ResolveCloudAnchorId(m_AnchorManager, cloudAnchorId);
-        debug3.text = "I was called";
-    }
+   
 
 
 

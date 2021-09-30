@@ -65,17 +65,17 @@ public class getplanes : NetworkBehaviour
     //int playerid = ConnectedPlayer.playerId;
     //[SyncVar]
     //public int[] tria;
-    public GameObject Cube;
+   // public GameObject Cube;
     public GameObject meshF;
-    public ARPlaneManager planeManager;
+    private ARPlaneManager planeManager;
     //public ARMeshManager m_MeshManager;
-    public MeshFilter meshFilterr;
+    //public MeshFilter meshFilterr;
     public Material mat;
     //float width = 1;
     //float height = 1;
     //ARPlaneManager m_ARPlaneManager;
     ARPlane planeNew;
-    public Text debug;
+  //  public Text debug;
     int idk;
     Vector3 smt;
     Quaternion identity;
@@ -108,7 +108,7 @@ public class getplanes : NetworkBehaviour
             }
 
 
-            planeManager.planesChanged += OnPlanesChanged;
+            //planeManager.planesChanged += OnPlanesChanged;
             Debug.Log("Subscribed to event");
 
         }
@@ -159,7 +159,7 @@ public class getplanes : NetworkBehaviour
             Debug.Log("too early2");
         else
         {
-            planeManager.planesChanged -= OnPlanesChanged;
+           // planeManager.planesChanged -= OnPlanesChanged;
             Debug.Log("Unsubscribed to event");
         }
 
@@ -169,7 +169,7 @@ public class getplanes : NetworkBehaviour
          }*/
     }
 
-    void OnPlanesChanged(ARPlanesChangedEventArgs eventArgs)
+   /* void OnPlanesChanged(ARPlanesChangedEventArgs eventArgs)
     {
 
         // Debug.Log("Planes Changed");
@@ -210,7 +210,7 @@ public class getplanes : NetworkBehaviour
              }*/
 
             //plane.boundaryChanged += UpdatePlane;
-            Debug.Log("PlanesAdded and subscibed to event (probably)");
+          /*  Debug.Log("PlanesAdded and subscibed to event (probably)");
 
             vectors = plane.boundary;
 
@@ -230,9 +230,9 @@ public class getplanes : NetworkBehaviour
         }
 
 
+    
 
-
-    }
+    }*/
 
     [Command] //Serverre küldi a Plane adatokat
     public void CmdAddMapInfo(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
@@ -671,7 +671,7 @@ public class getplanes : NetworkBehaviour
     public void Rpcmesh()
     {
         //once = false;
-        debug.text = "Rpc";
+        //debug.text = "Rpc";
         MakeMesh();
     }
     [Command]//Még nincs playerID
@@ -689,7 +689,7 @@ public class getplanes : NetworkBehaviour
     [ClientRpc]
     public void RpcWritesmt()
     {
-        debug.text = "i can call an Rpc and therefore a command too in getplanes";
+        //debug.text = "i can call an Rpc and therefore a command too in getplanes";
     }
 
    
