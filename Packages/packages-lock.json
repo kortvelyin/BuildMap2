@@ -1,14 +1,5 @@
 {
   "dependencies": {
-    "com.google.ar.core.arfoundation.extensions": {
-      "version": "file:../arcore-unity-extensions-1.23.0 (1).tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {
-        "com.unity.xr.arfoundation": "4.1.0-preview.10",
-        "com.unity.xr.arcore": "4.1.0-preview.10"
-      }
-    },
     "com.unity.collab-proxy": {
       "version": "1.3.9",
       "depth": 0,

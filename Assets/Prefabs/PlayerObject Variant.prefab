@@ -42,6 +42,8 @@ MonoBehaviour:
   meshFilterr: {fileID: 0}
   mat: {fileID: 2100000, guid: c1b4c66233e83bb4aa9ff272b14ea9b3, type: 2}
   debug: {fileID: 0}
+  worldMap: {fileID: 0}
+  canvas: {fileID: 3711270972118828779, guid: a2660b4dc5f51dc468942b24f033309f, type: 3}
 --- !u!1001 &144923675916150827
 PrefabInstance:
   m_ObjectHideFlags: 0

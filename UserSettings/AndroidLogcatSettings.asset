@@ -3,21 +3,99 @@
     "m_SelectedPackage": {
         "deviceId": "HYFDU18C14015378",
         "name": "com.DefaultCompany.onlabtest2020",
-        "processId": 21011,
+        "processId": 9599,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "HYFDU18C14015378",
-            "name": "com.DefaultCompany.onlabtest2020",
-            "processId": 16136,
+            "name": "com.huawei.android.launcher",
+            "processId": 2002,
             "exited": false
         },
         {
             "deviceId": "HYFDU18C14015378",
             "name": "com.DefaultCompany.onlabtest2020",
-            "processId": 21011,
+            "processId": 11080,
+            "exited": true
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 23964,
+            "exited": true
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 28748,
+            "exited": true
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 31172,
+            "exited": true
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 14133,
+            "exited": true
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 29179,
+            "exited": false
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 11139,
+            "exited": false
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 15161,
+            "exited": false
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 28035,
+            "exited": false
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 30987,
+            "exited": false
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 32373,
+            "exited": false
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 3779,
+            "exited": false
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 6189,
+            "exited": false
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 9599,
             "exited": false
         }
     ],
