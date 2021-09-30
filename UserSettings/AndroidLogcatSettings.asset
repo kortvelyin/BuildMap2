@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "HYFDU18C14015378",
+    "m_SelectedDeviceId": "ce03182345bb6e24017e",
     "m_SelectedPackage": {
-        "deviceId": "HYFDU18C14015378",
-        "name": "com.DefaultCompany.onlabtest2020",
-        "processId": 6378,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,55 +11,43 @@
         {
             "deviceId": "HYFDU18C14015378",
             "name": "com.DefaultCompany.onlabtest2020",
-            "processId": 16136,
-            "exited": false
-        },
-        {
-            "deviceId": "HYFDU18C14015378",
-            "name": "com.DefaultCompany.onlabtest2020",
-            "processId": 21011,
-            "exited": false
-        },
-        {
-            "deviceId": "HYFDU18C14015378",
-            "name": "com.DefaultCompany.onlabtest2020",
-            "processId": 19648,
-            "exited": false
-        },
-        {
-            "deviceId": "HYFDU18C14015378",
-            "name": "com.DefaultCompany.onlabtest2020",
-            "processId": 26150,
-            "exited": false
-        },
-        {
-            "deviceId": "HYFDU18C14015378",
-            "name": "com.DefaultCompany.onlabtest2020",
-            "processId": 2399,
-            "exited": false
-        },
-        {
-            "deviceId": "HYFDU18C14015378",
-            "name": "com.DefaultCompany.onlabtest2020",
             "processId": 12799,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "HYFDU18C14015378",
             "name": "com.DefaultCompany.onlabtest2020",
             "processId": 16398,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "HYFDU18C14015378",
             "name": "com.DefaultCompany.onlabtest2020",
             "processId": 2929,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "HYFDU18C14015378",
             "name": "com.DefaultCompany.onlabtest2020",
             "processId": 6378,
+            "exited": true
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 10005,
+            "exited": true
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 12690,
+            "exited": false
+        },
+        {
+            "deviceId": "ce03182345bb6e24017e",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 9227,
             "exited": false
         }
     ],
