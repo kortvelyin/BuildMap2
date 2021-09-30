@@ -31,17 +31,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660984646466197085}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de515d08d702b9046a0b19a76804a4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cube: {fileID: 0}
   meshF: {fileID: 703205516183378345, guid: dc4f686be3eb0994aadf140cd9a3e8c4, type: 3}
-  planeManager: {fileID: 0}
-  meshFilterr: {fileID: 0}
   mat: {fileID: 2100000, guid: c1b4c66233e83bb4aa9ff272b14ea9b3, type: 2}
-  debug: {fileID: 0}
 --- !u!1001 &144923675916150827
 PrefabInstance:
   m_ObjectHideFlags: 0
