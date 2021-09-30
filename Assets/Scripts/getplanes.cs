@@ -49,7 +49,7 @@ public class getplanes : NetworkBehaviour
     //int playerid = ConnectedPlayer.playerId;
     //[SyncVar]
     //public int[] tria;
-    public GameObject Cube;
+    public GameObject StepChild;  //to get a position  and rotation
     public GameObject meshF;
     public ARPlaneManager planeManager;
     //public ARMeshManager m_MeshManager;
@@ -74,8 +74,8 @@ public class getplanes : NetworkBehaviour
     private ARTrackedImageManager aRTrackedImageManager;
     public GameObject worldMap;
     private Vector3 newPlanePos;
-    private Quaternion newPlaneRot;
-    // public GameObject canvas;
+    private Vector3 newPlaneRot;
+    //public GameObject canvas;
     //float speed = 100.0f;
     // Start is called before the first frame update
 
@@ -87,7 +87,7 @@ public class getplanes : NetworkBehaviour
 
         if (isLocalPlayer)
         {
-            //GameObject newCanvas = Instantiate(canvas); 
+           // GameObject newCanvas = Instantiate(canvas); 
             playerNetID = GetComponent<NetworkIdentity>().netId;
             m_AnchorManager = GetComponent<ARAnchorManager>();
 
@@ -142,13 +142,13 @@ public class getplanes : NetworkBehaviour
 
                     Debug.Log("Picture is seen and name: " + TrackedImage.name);
                 }
-                foreach (var TrackedImage in args.updated)
+               /* foreach (var TrackedImage in args.updated)
                 {
                     worldMap.transform.position = TrackedImage.transform.position;
                     worldMap.transform.rotation = TrackedImage.transform.rotation;
 
                     Debug.Log("Picture is seen and name: " + TrackedImage.name);
-                }
+                }*/
             }
         }
 
@@ -375,24 +375,31 @@ public class getplanes : NetworkBehaviour
                 }
 
                 string json = JsonConvert.SerializeObject(vertices);
-                /* if(worldMap==null)
+                if(worldMap==null)
                  {
                      worldMap = GameObject.Find("WorldMap");
                      Debug.Log("Trying to find worldmap");
-                     newPlanePos = plane.transform.position - worldMap.transform.position;
-                     newPlaneRot = Quaternion.Euler(plane.transform.rotation.eulerAngles - worldMap.transform.rotation.eulerAngles);
-                 }
+                    newPlanePos = plane.transform.position - worldMap.transform.position;
+                    //newPlanePos = plane.transform.InverseTransformPoint(worldMap.transform.position);
+                    newPlaneRot = plane.transform.InverseTransformDirection(worldMap.transform.rotation.eulerAngles);
+                }
                  else
                  {
-                     newPlanePos = plane.transform.position-worldMap.transform.position;
-                     newPlaneRot = Quaternion.Euler(plane.transform.rotation.eulerAngles - worldMap.transform.rotation.eulerAngles);
+                    newPlanePos = plane.transform.position - worldMap.transform.position;
+                    //newPlanePos = plane.transform.InverseTransformPoint(worldMap.transform.position);
+                    newPlaneRot = plane.transform.InverseTransformDirection(worldMap.transform.rotation.eulerAngles);
+                   // Vector3 cameraRelative = cam.InverseTransformPoint(transform.position);
+                }
 
-                 }*/
+                StepChild.transform.position = plane.transform.position;
+                StepChild.transform.rotation = plane.transform.rotation;
+                StepChild.transform.parent = worldMap.transform;
                 // CmdAddMapInfo(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
                 // CmdAddPlaneToServer(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
-                // CmdAddMapInfo(json, newPlanePos, newPlaneRot, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
-                CmdAddMapInfo(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
-                //CmdCreatePlaneFromData(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
+                 CmdAddMapInfo(json, StepChild.transform.localPosition, StepChild.transform.localRotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
+                StepChild.transform.parent = null;
+                //// CmdAddMapInfo(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
+                //CmdCreatePlaneFromData(json, plane.transform.position, Quaternion.Euler(newPlaneRot), plane.GetInstanceID(), plane.boundary.Length, playerNetID);
             }
 
 
@@ -421,21 +428,25 @@ public class getplanes : NetworkBehaviour
             Debug.Log("In updatePlaneEvent as client");
             Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
             Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);
-            /*if (worldMap == null)
+            if (worldMap == null)
             {
                 worldMap = GameObject.Find("WorldMap");
                 Debug.Log("Trying to find worldmap");
                 newPlanePos = eventArgs.plane.transform.position - worldMap.transform.position;
-                newPlaneRot = Quaternion.Euler(eventArgs.plane.transform.rotation.eulerAngles - worldMap.transform.rotation.eulerAngles);
+                newPlaneRot = eventArgs.plane.transform.InverseTransformDirection(worldMap.transform.rotation.eulerAngles);
             }
             else
             {
                 newPlanePos = eventArgs.plane.transform.position - worldMap.transform.position;
-                newPlaneRot = Quaternion.Euler(eventArgs.plane.transform.rotation.eulerAngles - worldMap.transform.rotation.eulerAngles);
+                newPlaneRot = eventArgs.plane.transform.InverseTransformDirection(worldMap.transform.rotation.eulerAngles);
 
-            }*/
-            CmdUpdateMapInfo(json, eventArgs.plane.transform.position, eventArgs.plane.transform.rotation, eventArgs.plane.GetInstanceID(), eventArgs.plane.boundary.Length, playerNetID);
-            // CmdUpdateMapInfo(json, newPlanePos, newPlaneRot, eventArgs.plane.GetInstanceID(), eventArgs.plane.boundary.Length, playerNetID);
+            }
+            StepChild.transform.position = eventArgs.plane.transform.position;
+            StepChild.transform.rotation = eventArgs.plane.transform.rotation;
+            StepChild.transform.parent = worldMap.transform;
+            // CmdUpdateMapInfo(json, eventArgs.plane.transform.position, eventArgs.plane.transform.rotation, eventArgs.plane.GetInstanceID(), eventArgs.plane.boundary.Length, playerNetID);
+            CmdUpdateMapInfo(json, StepChild.transform.localPosition, StepChild.transform.localRotation, eventArgs.plane.GetInstanceID(), eventArgs.plane.boundary.Length, playerNetID);
+            StepChild.transform.parent = null;
         }
     }
 
@@ -627,8 +638,8 @@ public class getplanes : NetworkBehaviour
                     planesDict[idtoDict].GetComponent<MeshRenderer>().material = mat;
                     Destroy(planesDict[idtoDict].GetComponent<MeshCollider>());
                     planesDict[idtoDict].AddComponent<MeshCollider>();
-                    planesDict[idtoDict].transform.position = position;
-                    planesDict[idtoDict].transform.rotation = rotation;
+                    planesDict[idtoDict].transform.localPosition = position;
+                    planesDict[idtoDict].transform.localRotation = rotation;
                 }
             }
             else
@@ -689,8 +700,8 @@ public class getplanes : NetworkBehaviour
                 newMeshF.GetComponent<MeshRenderer>().material = mat;
                 newMeshF.AddComponent<MeshCollider>();
                 newMeshF.AddComponent<Rigidbody>().isKinematic = true;
-                newMeshF.transform.position = position;
-                newMeshF.transform.rotation = rotation;
+                newMeshF.transform.localPosition = position;
+                newMeshF.transform.localRotation = rotation;
                 anchor = newMeshF.GetComponent<ARAnchor>();
                 if (anchor == null)
                 {
