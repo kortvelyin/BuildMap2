@@ -315,10 +315,10 @@ public class getplanes : NetworkBehaviour
 
          aRTrackedImageManager.trackedImagesChanged += OnImageChanged;
 
-        /* foreach (ARPlane plane in planeManager.trackables)
+        foreach (ARPlane plane in planeManager.trackables)
          {
              CmdRemoveMapInfo(plane.GetInstanceID(), playerNetID);
-         }*/
+         }
     }
 
 
@@ -470,8 +470,8 @@ public class getplanes : NetworkBehaviour
     [Command]
     public void CmdRemoveMapInfo(int id, NetworkInstanceId playerNetID)
     {
-        if (isServer)
-        {
+       // if (isServer)
+        //{
             Debug.Log("In RemoveCmd as Server");
             Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
             Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);
@@ -485,14 +485,14 @@ public class getplanes : NetworkBehaviour
             {
                 Debug.Log("Tried to Remove a Map Info that didn't exist");
             }
-        }
+       // }
     }
 
     [Command]
     public void CmdUpdateMapInfo(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
     {
-        if (isServer)
-        {
+       // if (isServer)
+      //  {
 
             foreach (var entry in verticesDict)
             {
@@ -538,39 +538,39 @@ public class getplanes : NetworkBehaviour
             {
                 Debug.Log("Tried to Update Map Info that didn't exist");
             }
-        }
+       // }
 
     }
 
     [ClientRpc]//Plane adatból állítja elõ a mesh-t
     void RpcRemovePlaneFromClient(int id, NetworkInstanceId playerNetID)
     {
-        if (isLocalPlayer)
-        {
+       // if (isLocalPlayer)
+       // {
             RemovePlane(id, playerNetID);
-        }
+       // }
     }
 
     [ClientRpc]//Plane adatból állítja elõ a mesh-t
     void RpcUpdatePlaneOnClient(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
     {
-        if (isLocalPlayer)
-        {
+       // if (isLocalPlayer)
+       // {
             var vertices = JsonConvert.DeserializeObject<List<Vector3>>(json);
             Vector3[] verticess = vertices.ToArray();
             UpdatePlane(verticess, position, rotation, id, boundarylength, playerNetID);
-        }
+       // }
     }
 
     [ClientRpc]//Plane adatból állítja elõ a mesh-t
     void RpcAddPlaneToClient(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
     {
-        if (isLocalPlayer)
-        {
+       // if (isLocalPlayer)
+       // {
             var vertices = JsonConvert.DeserializeObject<List<Vector3>>(json);
             Vector3[] verticess = vertices.ToArray();
             AddPlane(verticess, position, rotation, id, boundarylength, playerNetID);
-        }
+       // }
     }
 
     public void RemovePlane(int id, NetworkInstanceId playerNetID)
@@ -647,7 +647,10 @@ public class getplanes : NetworkBehaviour
             GameObject newMeshF = Instantiate(meshF);
 
             if (worldMap != null)
+            {
                 newMeshF.transform.parent = worldMap.transform;
+                Debug.Log("Parenting it, child of worldMap: "+worldMap.transform.GetChildCount().ToString());
+            }
             else
             {
                 worldMap = GameObject.Find("WorldMap");
