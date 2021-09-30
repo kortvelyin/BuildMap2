@@ -142,6 +142,13 @@ public class getplanes : NetworkBehaviour
 
                     Debug.Log("Picture is seen and name: " + TrackedImage.name);
                 }
+                foreach (var TrackedImage in args.updated)
+                {
+                    worldMap.transform.position = TrackedImage.transform.position;
+                    worldMap.transform.rotation = TrackedImage.transform.rotation;
+
+                    Debug.Log("Picture is seen and name: " + TrackedImage.name);
+                }
             }
         }
 
@@ -151,8 +158,8 @@ public class getplanes : NetworkBehaviour
 
     public void PutWorldMapToOrigo()
     {
-        if (isLocalPlayer)
-        {
+        //if (isLocalPlayer)
+       // {
             Debug.Log("InPutworldMaptoOrigin as localclient");
             Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
             Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);
@@ -164,7 +171,7 @@ public class getplanes : NetworkBehaviour
             }
             else
                 Debug.Log("DIDNT FIND WORLDMAP");
-        }
+        //}
     }
     public void CallForThePlanes()
     {
@@ -246,6 +253,10 @@ public class getplanes : NetworkBehaviour
             Debug.Log("In CmdAskforplanews as Server");
             Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
             Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);
+            foreach (var entry in verticesDict)
+            {
+                RpcAddPlaneToClient(entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
+            }
         }
         /* Debug.Log("Writing out number of planes: " + planesDict.Count);
 
@@ -589,8 +600,8 @@ public class getplanes : NetworkBehaviour
 
     public void UpdatePlane(Vector3[] vertices, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
     {
-        if (isLocalPlayer)
-        {
+        //if (isLocalPlayer)
+        //{
             Debug.Log("In UpdatePlane as client");
             Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
             Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);
@@ -622,14 +633,14 @@ public class getplanes : NetworkBehaviour
             }
             else
                 Debug.Log("Tried to update a plane that didn't exist");
-        }
+        //}
 
     }
 
     public void AddPlane(Vector3[] vertices, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
     {
-        if (isLocalPlayer)
-        {
+       // if (isLocalPlayer)
+       // {
             Debug.Log("In Add as Clihet");
             Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
             Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);
@@ -649,7 +660,7 @@ public class getplanes : NetworkBehaviour
             if (worldMap != null)
             {
                 newMeshF.transform.parent = worldMap.transform;
-                Debug.Log("Parenting it, child of worldMap: "+worldMap.transform.GetChildCount().ToString());
+                Debug.Log("Parenting it, child of worldMap: "+worldMap.transform.childCount.ToString());
             }
             else
             {
@@ -690,7 +701,7 @@ public class getplanes : NetworkBehaviour
                     }*/
                 }
                 m_Anchors.Add(anchor);
-            }
+           // }
         }
     }
     void Update()
