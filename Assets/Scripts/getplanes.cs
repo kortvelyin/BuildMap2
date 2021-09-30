@@ -43,11 +43,13 @@ public class getplanes : NetworkBehaviour
     //public static HashSet<Player> ActivePlayers = new HashSet<Player>();
     [SyncVar]
     int PlayerId = 0;
+
     int ownID;
     private NetworkInstanceId playerNetID;
     //int playerid = ConnectedPlayer.playerId;
     //[SyncVar]
     //public int[] tria;
+    public GameObject Cube;
     public GameObject meshF;
     public ARPlaneManager planeManager;
     //public ARMeshManager m_MeshManager;
