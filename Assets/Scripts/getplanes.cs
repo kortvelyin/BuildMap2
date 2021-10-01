@@ -216,10 +216,13 @@ public class getplanes : NetworkBehaviour
     }
 
     /* void OnPlayerConnected()
-     {
-         Debug.Log("OnPlayerConnected vertices Count on Server when asking for the entries: " + verticesDict.Count);
-         // CmdAskForPlanesFromServerOnStart();
-         foreach (ARPlane plane in planeManager.trackables)
+    {
+        Debug.Log("OnPlayerConnected");
+        Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
+        Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);
+        CmdAskForPlanesFromServerOnStart();*/
+        // CmdAskForPlanesFromServerOnStart();
+        /* foreach (ARPlane plane in planeManager.trackables)
          {
              vectors = plane.boundary;
 
@@ -232,8 +235,8 @@ public class getplanes : NetworkBehaviour
 
              string json = JsonConvert.SerializeObject(vertices);
              RpcAddPlaneToClient(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
-         }
-     }*/
+         }*/
+    //}
 
 
     /*  public  void OnServerConnect(NetworkConnection Conn)
