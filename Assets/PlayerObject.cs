@@ -23,6 +23,7 @@ public class PlayerObject : NetworkBehaviour
 
 
         CmdSpawnMyUnit();
+       
         spawner = FindObjectOfType<ObjectSpawner>();
 
 
