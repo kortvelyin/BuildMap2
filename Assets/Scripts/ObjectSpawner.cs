@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-using UnityEngine.Networking;
+using Mirror;
 
 
 //[RequireComponent(typeof(ARAnchorManager))]
@@ -47,6 +47,7 @@ public class ObjectSpawner : NetworkBehaviour
     public Text debug3;
     public ARPlaneManager planeManager;
     PlayerObject player;
+    private NetworkConnection conn;
     public GameObject prefab
     {
         get => objectToSpawn;
@@ -207,7 +208,7 @@ public class ObjectSpawner : NetworkBehaviour
         }
         m_Anchors.Add(anchor);
         // RpcSpawnObjects(no,pos,rot);
-        NetworkServer.SpawnWithClientAuthority(obj, connectionToClient);
+        NetworkServer.Spawn(obj, conn);
 
     }
 

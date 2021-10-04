@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.UI;
-using UnityEngine.Networking;
+using Mirror;
 using Newtonsoft.Json;
 
 
@@ -20,10 +20,10 @@ public class getplanes : NetworkBehaviour
         public Quaternion rotation;
         public int id;
         public int boundarylength;
-        public NetworkInstanceId playerNetID;
+        public uint playerNetID;
 
 
-        public PlaneData(string Jvertice, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
+        public PlaneData(string Jvertice, Vector3 position, Quaternion rotation, int id, int boundarylength, uint playerNetID)
         {
             this.position = position;
             this.rotation = rotation;
@@ -38,14 +38,14 @@ public class getplanes : NetworkBehaviour
 
     ARAnchorManager m_AnchorManager;
     List<ARAnchor> m_Anchors = new List<ARAnchor>();
-    Dictionary<string, PlaneData> verticesDict = new Dictionary<string, PlaneData>();
-    Dictionary<string, GameObject> planesDict = new Dictionary<string, GameObject>();
+    static Dictionary<string, PlaneData> verticesDict = new Dictionary<string, PlaneData>();
+     Dictionary<string, GameObject> planesDict = new Dictionary<string, GameObject>();
     //public static HashSet<Player> ActivePlayers = new HashSet<Player>();
     [SyncVar]
     int PlayerId = 0;
 
     int ownID;
-    private NetworkInstanceId playerNetID;
+    private uint playerNetID;
     //int playerid = ConnectedPlayer.playerId;
     //[SyncVar]
     //public int[] tria;
@@ -78,13 +78,14 @@ public class getplanes : NetworkBehaviour
     //public GameObject canvas;
     //float speed = 100.0f;
     // Start is called before the first frame update
+    private ARTrackedImage Image;
 
     //PlayerObject playerobjscript;
 
     //tuner.EnableLocalEndpoint();
     void Start()
     {
-
+      
         if (isLocalPlayer)
         {
            // GameObject newCanvas = Instantiate(canvas); 
@@ -140,15 +141,20 @@ public class getplanes : NetworkBehaviour
                 {
                     worldMap.transform.position = TrackedImage.transform.position;
                     worldMap.transform.rotation = TrackedImage.transform.rotation;
-
+                    Image = TrackedImage;
                     Debug.Log("Picture is seen and name: " + TrackedImage.name);
                 }
-               /* foreach (var TrackedImage in args.updated)
-                {
-                    worldMap.transform.position = TrackedImage.transform.position;
-                    worldMap.transform.rotation = TrackedImage.transform.rotation;
 
-                    Debug.Log("Picture is seen and name: " + TrackedImage.name);
+
+               /*foreach (var TrackedImage in args.updated)
+                {
+                    if (TrackedImage == Image)
+                    {
+                        worldMap.transform.position = TrackedImage.transform.position;
+                        worldMap.transform.rotation = TrackedImage.transform.rotation;
+
+                        Debug.Log("Picture is seen and name: " + TrackedImage.name);
+                    }
                 }*/
             }
         }
@@ -254,12 +260,15 @@ public class getplanes : NetworkBehaviour
             Debug.Log("In CmdAskforplanews as Server");
             Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
             Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);
+            
             if(PlanesCount<1)
             foreach (var entry in verticesDict)
             {
                 RpcAddPlaneToClient(entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
             }
+           
         }
+      
         /* Debug.Log("Writing out number of planes: " + planesDict.Count);
 
          foreach ( var entry in planesDict)
@@ -458,7 +467,7 @@ public class getplanes : NetworkBehaviour
 
 
     [Command] //Serverre küldi a Plane adatokat
-    public void CmdAddMapInfo(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
+    public void CmdAddMapInfo(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, uint playerNetID)
     {
 
         if (isServer)
@@ -496,7 +505,7 @@ public class getplanes : NetworkBehaviour
     }
 
     [Command]
-    public void CmdRemoveMapInfo(int id, NetworkInstanceId playerNetID)
+    public void CmdRemoveMapInfo(int id, uint playerNetID)
     {
         if (isServer)
         {
@@ -517,7 +526,7 @@ public class getplanes : NetworkBehaviour
     }
 
     [Command]
-    public void CmdUpdateMapInfo(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
+    public void CmdUpdateMapInfo(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, uint playerNetID)
     {
        if (isServer)
        {
@@ -571,7 +580,7 @@ public class getplanes : NetworkBehaviour
     }
 
     [ClientRpc]//Plane adatból állítja elõ a mesh-t
-    void RpcRemovePlaneFromClient(int id, NetworkInstanceId playerNetID)
+    void RpcRemovePlaneFromClient(int id, uint playerNetID)
     {
        // if (isLocalPlayer)
        // {
@@ -580,7 +589,7 @@ public class getplanes : NetworkBehaviour
     }
 
     [ClientRpc]//Plane adatból állítja elõ a mesh-t
-    void RpcUpdatePlaneOnClient(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
+    void RpcUpdatePlaneOnClient(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, uint playerNetID)
     {
        // if (isLocalPlayer)
        // {
@@ -591,7 +600,7 @@ public class getplanes : NetworkBehaviour
     }
 
     [ClientRpc]//Plane adatból állítja elõ a mesh-t
-    void RpcAddPlaneToClient(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
+    void RpcAddPlaneToClient(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, uint playerNetID)
     {
        // if (isLocalPlayer)
        // {
@@ -601,7 +610,7 @@ public class getplanes : NetworkBehaviour
        // }
     }
 
-    public void RemovePlane(int id, NetworkInstanceId playerNetID)
+    public void RemovePlane(int id, uint playerNetID)
     {
         if (isLocalPlayer)
         {
@@ -609,13 +618,13 @@ public class getplanes : NetworkBehaviour
 
             if (planesDict[idtoDict] != null)
             {
-                DestroyImmediate(planesDict[idtoDict], true);
+                Destroy(planesDict[idtoDict]);
                 planesDict.Remove(idtoDict);
             }
         }
     }
 
-    public void UpdatePlane(Vector3[] vertices, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
+    public void UpdatePlane(Vector3[] vertices, Vector3 position, Quaternion rotation, int id, int boundarylength, uint playerNetID)
     {
         //if (isLocalPlayer)
         //{
@@ -654,7 +663,7 @@ public class getplanes : NetworkBehaviour
 
     }
 
-    public void AddPlane(Vector3[] vertices, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
+    public void AddPlane(Vector3[] vertices, Vector3 position, Quaternion rotation, int id, int boundarylength, uint playerNetID)
     {
        // if (isLocalPlayer)
        // {

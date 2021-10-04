@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+using Mirror;
 //using UnityEngine.UI;
 
 public class PlayerObject : NetworkBehaviour
@@ -13,7 +13,8 @@ public class PlayerObject : NetworkBehaviour
     ObjectSpawner spawner;
    
     public GameObject spawned;
-    
+    private NetworkConnection conn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,7 @@ public class PlayerObject : NetworkBehaviour
        GameObject obj= Instantiate(PlayerUnitPrefab);
         //NetworkServer.Spawn(obj);
         //myPlayerUnit = obj;
-        NetworkServer.SpawnWithClientAuthority(obj, connectionToClient);
+        NetworkServer.Spawn(obj, conn);
     }
     [System.NonSerialized]
     public bool once = false;
