@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "HYFDU18C14015378",
         "name": "com.DefaultCompany.onlabtest2020",
-        "processId": 32607,
+        "processId": 24091,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -66,6 +66,18 @@
             "deviceId": "HYFDU18C14015378",
             "name": "com.DefaultCompany.onlabtest2020",
             "processId": 32607,
+            "exited": false
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 20360,
+            "exited": false
+        },
+        {
+            "deviceId": "HYFDU18C14015378",
+            "name": "com.DefaultCompany.onlabtest2020",
+            "processId": 24091,
             "exited": false
         },
         {

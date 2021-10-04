@@ -38,7 +38,7 @@ public class getplanes : NetworkBehaviour
 
     ARAnchorManager m_AnchorManager;
     List<ARAnchor> m_Anchors = new List<ARAnchor>();
-    Dictionary<string, PlaneData> verticesDict = new Dictionary<string, PlaneData>();
+    static Dictionary<string, PlaneData> verticesDict = new Dictionary<string, PlaneData>();
     Dictionary<string, GameObject> planesDict = new Dictionary<string, GameObject>();
     //public static HashSet<Player> ActivePlayers = new HashSet<Player>();
     [SyncVar]
@@ -75,6 +75,7 @@ public class getplanes : NetworkBehaviour
     public GameObject worldMap;
     private Vector3 newPlanePos;
     private Vector3 newPlaneRot;
+    
     //public GameObject canvas;
     //float speed = 100.0f;
     // Start is called before the first frame update
@@ -106,7 +107,7 @@ public class getplanes : NetworkBehaviour
             aRTrackedImageManager.trackedImagesChanged += OnImageChanged;
             CmdAskForPlanesFromServerOnStart(planesDict.Count);
             // CmdAskForPlanesFromServerOnStart();
-        }
+        } 
         // CmdAskForPlanesFromServerOnStart(connectionToClient);
 
     }
@@ -188,7 +189,7 @@ public class getplanes : NetworkBehaviour
             CmdAskForPlanesFromServerOnStart(planesDict.Count);
         }
 
-
+         
         /*  if(isServer)
           {
               Debug.Log("In callforplanes as server");
@@ -216,7 +217,7 @@ public class getplanes : NetworkBehaviour
 
     }
 
-    /* void OnPlayerConnected()
+   /* void OnPlayerConnected()
      {
          Debug.Log("OnPlayerConnected vertices Count on Server when asking for the entries: " + verticesDict.Count);
          // CmdAskForPlanesFromServerOnStart();
@@ -257,8 +258,9 @@ public class getplanes : NetworkBehaviour
             if(PlanesCount<1)
             foreach (var entry in verticesDict)
             {
-                RpcAddPlaneToClient(entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
-            }
+                    //RpcAddPlaneToClient(entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
+                    TargetCreatePlanesFromServer(connectionToClient, entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
+                }
         }
         /* Debug.Log("Writing out number of planes: " + planesDict.Count);
 
@@ -295,7 +297,7 @@ public class getplanes : NetworkBehaviour
 
     }
 
-    /*  [TargetRpc]
+     [TargetRpc]
       public void TargetCreatePlanesFromServer(NetworkConnection target, string json, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
       {
           var vertices = JsonConvert.DeserializeObject<List<Vector3>>(json);
@@ -308,7 +310,7 @@ public class getplanes : NetworkBehaviour
       public void TargetChecking(NetworkConnection target, int idk)
       {
           Debug.Log("I'm back name  :" + target + " , and verticesnumber " + idk);
-      }*/
+      }
 
 
 
@@ -401,7 +403,7 @@ public class getplanes : NetworkBehaviour
                 // CmdAddMapInfo(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
                 // CmdAddPlaneToServer(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
                  CmdAddMapInfo(json, StepChild.transform.localPosition, StepChild.transform.localRotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
-                CmdAskForPlanesFromServerOnStart(planesDict.Count);
+               // CmdAskForPlanesFromServerOnStart(planesDict.Count);
                // StepChild.transform.parent = null;
                 //// CmdAddMapInfo(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
                 //CmdCreatePlaneFromData(json, plane.transform.position, Quaternion.Euler(newPlaneRot), plane.GetInstanceID(), plane.boundary.Length, playerNetID);
