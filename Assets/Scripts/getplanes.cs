@@ -75,6 +75,7 @@ public class getplanes : NetworkBehaviour
     public GameObject worldMap;
     private Vector3 newPlanePos;
     private Vector3 newPlaneRot;
+    public bool watchTheimage=true;
     
     //public GameObject canvas;
     //float speed = 100.0f;
@@ -105,7 +106,8 @@ public class getplanes : NetworkBehaviour
             planeManager.planesChanged += OnPlanesChanged;
             Debug.Log("Subscribed to event");
             aRTrackedImageManager.trackedImagesChanged += OnImageChanged;
-            CmdAskForPlanesFromServerOnStart(planesDict.Count);
+            planeManager.enabled = false;
+           // CmdAskForPlanesFromServerOnStart(planesDict.Count);
             // CmdAskForPlanesFromServerOnStart();
         } 
         // CmdAskForPlanesFromServerOnStart(connectionToClient);
@@ -143,13 +145,23 @@ public class getplanes : NetworkBehaviour
                     worldMap.transform.rotation = TrackedImage.transform.rotation;
 
                     Debug.Log("Picture is seen and name: " + TrackedImage.name);
-                }
-               /* foreach (var TrackedImage in args.updated)
-                {
-                    worldMap.transform.position = TrackedImage.transform.position;
-                    worldMap.transform.rotation = TrackedImage.transform.rotation;
+                    planeManager.enabled = true;
+                    CmdAskForPlanesFromServerOnStart(planesDict.Count);
 
-                    Debug.Log("Picture is seen and name: " + TrackedImage.name);
+                }
+               /* if (watchTheimage)
+                {
+                    foreach (var TrackedImage in args.updated)
+                    {
+                   
+                        if (TrackedImage.transform.position != worldMap.transform.position && TrackedImage.transform.rotation != worldMap.transform.rotation)
+                        {
+                            worldMap.transform.position = TrackedImage.transform.position;
+                            worldMap.transform.rotation = TrackedImage.transform.rotation;
+                            ///???
+                            Debug.Log("Picture is seen and name: " + TrackedImage.name);
+                        }
+                    }
                 }*/
             }
         }
@@ -177,8 +189,7 @@ public class getplanes : NetworkBehaviour
     }
     public void CallForThePlanes()
     {
-        /*if (!isLocalPlayer)
-            return;*/
+        
 
 
         if (isLocalPlayer)
@@ -190,30 +201,7 @@ public class getplanes : NetworkBehaviour
         }
 
          
-        /*  if(isServer)
-          {
-              Debug.Log("In callforplanes as server");
-              Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
-              Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);
-
-          }*/
-        // CmdAskForPlanesFromServerOnStart();
-
-
-        /* foreach (ARPlane plane in planeManager.trackables)
-         {
-             vectors = plane.boundary;
-
-             Vector3[] vertices = new Vector3[plane.boundary.Length];
-             int i;
-             for (i = 0; i < plane.boundary.Length; i++)
-             {
-                 vertices[i] = new Vector3(vectors[i].x, 0, vectors[i].y);
-             }
-
-             string json = JsonConvert.SerializeObject(vertices);
-             RpcAddPlaneToClient(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
-         }*/
+      
 
     }
 
@@ -260,40 +248,9 @@ public class getplanes : NetworkBehaviour
             {
                     //RpcAddPlaneToClient(entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
                     TargetCreatePlanesFromServer(connectionToClient, entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
-                }
-        }
-        /* Debug.Log("Writing out number of planes: " + planesDict.Count);
-
-         foreach ( var entry in planesDict)
-         {
-             //RpcAddPlaneToClient(entry.Value.gameObject.GetComponent<MeshFilter>().mesh.vertices, entry.Value.gameObject.transform.position, entry.Value.gameObject.transform.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
-         }
-        */
-        /*Debug.Log("asking plane informations from server");
-        foreach (ARPlane plane in planeManager.trackables)
-        {
-            vectors = plane.boundary;
-
-            Vector3[] vertices = new Vector3[plane.boundary.Length];
-            int i;
-            for (i = 0; i < plane.boundary.Length; i++)
-            {
-                vertices[i] = new Vector3(vectors[i].x, 0, vectors[i].y);
             }
-
-            string json = JsonConvert.SerializeObject(vertices);
-            RpcAddPlaneToClient(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
         }
-
-        Debug.Log(" vertices Count on Server when asking for the entries: " + verticesDict.Count);
-       // TargetChecking(connectionToClient, verticesDict.Count);
-        foreach (var entry in verticesDict)
-        {
-            Debug.Log("There was something on the server");
-           
-            RpcAddPlaneToClient(entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
-            //TargetCreatePlanesFromServer(connectionToClient, entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
-        }*/
+      
 
     }
 
@@ -332,7 +289,8 @@ public class getplanes : NetworkBehaviour
 
         foreach (ARPlane plane in planeManager.trackables)
          {
-             CmdRemoveMapInfo(plane.GetInstanceID(), playerNetID);
+            // CmdRemoveMapInfo(plane.GetInstanceID(), playerNetID);
+            RemovePlane(plane.GetInstanceID(), playerNetID);
          }
     }
 
@@ -665,7 +623,8 @@ public class getplanes : NetworkBehaviour
             Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);*/
             ARAnchor anchor = null;
             string idtoDict = id.ToString() + playerNetID.ToString();
-
+        if (watchTheimage != false)
+            watchTheimage = false;
             Mesh mesh = new Mesh();
             if (planesDict.ContainsKey(idtoDict))
             {
