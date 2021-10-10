@@ -53,6 +53,8 @@ public class getplanes : NetworkBehaviour
     private ARTrackedImageManager aRTrackedImageManager;
     public GameObject worldMap;
     public bool watchTheimage=true;
+    public bool samePos=false;
+    public float PosDiff=2;
     
   
     void Start()
@@ -315,34 +317,59 @@ public class getplanes : NetworkBehaviour
 
         if (isServer)
         {
-            string verticesid = id.ToString() + playerNetID.ToString();
-            if (verticesDict.ContainsKey(verticesid))
+            foreach (var entry in verticesDict)
             {
-                Debug.Log("New Map Info existed already");
+                if (PositionApprSame(position, entry.Value.position, PosDiff))
+                {
+                    Debug.Log("I wouldnt add this");
+                    /*samePos = true;
+                    break;*/
+                }
+           
+                
+
+
+                ///Let's check if it's appr. the same
+                /////if yes, then drop the nwe one, becuse its more efficient probably
+                ///if no, go on with the thingie
+                /////cant use PositionsAreApproximatelyEqual(List<Vector3>, List<Vector3>, Single)
+                ///because we don't have planes, only data's
+                ///we cant have planes in here
+                ///we could check the difference with different numbers in different directions
+            }
+            if (!samePos)
+            {
+                string verticesid = id.ToString() + playerNetID.ToString();
+                if (verticesDict.ContainsKey(verticesid))
+                {
+                    Debug.Log("New Map Info existed already");
+                }
+                else
+                {
+                    /* foreach (var entry in verticesDict)
+                     {
+                         Debug.Log("Position of the vertices until now: " + entry.Value.position);
+                     }*/
+                    // Debug.Log("New Map Info added in cmd");
+                    PlaneData pData;
+
+                    pData.position = position;
+                    pData.rotation = rotation;
+                    pData.Jvertice = json;
+                    pData.id = id;
+                    pData.boundarylength = boundarylength;
+                    pData.playerNetID = playerNetID;
+
+                    verticesDict.Add(verticesid, pData);
+
+                    /*Debug.Log("In Add Cmd as Server");
+                    Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
+                    Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);*/
+                    RpcAddPlaneToClient(json, position, rotation, id, boundarylength, playerNetID);
+                }
             }
             else
-            {
-                /* foreach (var entry in verticesDict)
-                 {
-                     Debug.Log("Position of the vertices until now: " + entry.Value.position);
-                 }*/
-                // Debug.Log("New Map Info added in cmd");
-                PlaneData pData;
-
-                pData.position = position;
-                pData.rotation = rotation;
-                pData.Jvertice = json;
-                pData.id = id;
-                pData.boundarylength = boundarylength;
-                pData.playerNetID = playerNetID;
-
-                verticesDict.Add(verticesid, pData);
-
-                /*Debug.Log("In Add Cmd as Server");
-                Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
-                Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);*/
-                RpcAddPlaneToClient(json, position, rotation, id, boundarylength, playerNetID);
-            }
+                samePos = false;
         }
 
     }
@@ -359,6 +386,7 @@ public class getplanes : NetworkBehaviour
             if (verticesDict.ContainsKey(verticesid))
             {
                 verticesDict.Remove(verticesid);
+
                 RpcRemovePlaneFromClient(id, playerNetID);
             }
             else
@@ -368,6 +396,27 @@ public class getplanes : NetworkBehaviour
        }
     }
 
+    public bool PositionApprSame(Vector3 Pos, Vector3 entryPos, float difference)
+    {
+        if (Mathf.Abs(Pos.x) - difference < Mathf.Abs(entryPos.x) || Mathf.Abs(entryPos.x) < Mathf.Abs(Pos.x) + difference)
+        {
+            if (Mathf.Abs(Pos.y) - difference < Mathf.Abs(entryPos.y) || Mathf.Abs(entryPos.y) < Mathf.Abs(Pos.y) + difference)
+            {
+                if (Mathf.Abs(Pos.z) - difference < Mathf.Abs(entryPos.z) || Mathf.Abs(entryPos.z) < Mathf.Abs(Pos.z) + difference)
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
+        else
+            return false;
+
+
+    }
+
+
     [Command]
     public void CmdUpdateMapInfo(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
     {
@@ -376,6 +425,23 @@ public class getplanes : NetworkBehaviour
 
             foreach (var entry in verticesDict)
             {
+                if (PositionApprSame(position, entry.Value.position, PosDiff))
+                {
+                    Debug.Log("I would delete this one");
+                    /*string Uverticesid = id.ToString() + playerNetID.ToString();
+                    if (verticesDict.ContainsKey(Uverticesid))
+                    {
+                        verticesDict.Remove(Uverticesid);
+
+                        RpcRemovePlaneFromClient(id, playerNetID);
+                    }
+                    else
+                    {
+                        Debug.Log("Tried to Remove a Map Info that didn't exist");
+                    }*/
+                }
+                ///Remove
+
                 ///Let's check if it's appr. the same
                 /////if yes, then drop the nwe one, becuse its more efficient probably
                 ///if no, go on with the thingie
@@ -461,8 +527,14 @@ public class getplanes : NetworkBehaviour
 
             if (planesDict[idtoDict] != null)
             {
-                DestroyImmediate(planesDict[idtoDict], true);
-                planesDict.Remove(idtoDict);
+                planesDict[idtoDict].transform.parent = null;
+                Destroy(planesDict[idtoDict]);
+                Debug.Log("PLane was destroyed");
+                if (planesDict[idtoDict] != null)
+                    planesDict.Remove(idtoDict);
+                else
+                    Debug.Log("Nem volt mit eltavolitani");
+                 
             }
         }
     }
