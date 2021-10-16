@@ -53,6 +53,7 @@ MonoBehaviour:
   syncInterval: 0.1
   PlayerUnitPrefab: {fileID: 6403844244064433501, guid: 0c230719000d6494ab87201669980998, type: 3}
   spawned: {fileID: 0}
+  players: []
 --- !u!114 &4329701925325446122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,10 +88,14 @@ MonoBehaviour:
   StepChild: {fileID: 7409356269056066827, guid: ff37fe192e0555743955c0cdc720d951, type: 3}
   meshF: {fileID: 703205516183378345, guid: dc4f686be3eb0994aadf140cd9a3e8c4, type: 3}
   planeManager: {fileID: 0}
-  meshFilterr: {fileID: 0}
   mat: {fileID: 2100000, guid: c1b4c66233e83bb4aa9ff272b14ea9b3, type: 2}
   debug: {fileID: 0}
   worldMap: {fileID: 0}
+  watchTheimage: 1
+  samePos: 0
+  PosDiff: 0.5
+  RotDiff: 40
+  readImage: 0
 --- !u!114 &1262505373996720896
 MonoBehaviour:
   m_ObjectHideFlags: 0

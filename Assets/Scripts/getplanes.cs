@@ -38,49 +38,29 @@ public class getplanes : NetworkBehaviour
 
     ARAnchorManager m_AnchorManager;
     List<ARAnchor> m_Anchors = new List<ARAnchor>();
-    static Dictionary<string, PlaneData> verticesDict = new Dictionary<string, PlaneData>();
-     Dictionary<string, GameObject> planesDict = new Dictionary<string, GameObject>();
-    //public static HashSet<Player> ActivePlayers = new HashSet<Player>();
-    [SyncVar]
-    int PlayerId = 0;
-
-    int ownID;
+     static Dictionary<string, PlaneData> verticesDict = new Dictionary<string, PlaneData>();
+   Dictionary<string, GameObject> planesDict = new Dictionary<string, GameObject>();
     private uint playerNetID;
-    //int playerid = ConnectedPlayer.playerId;
-    //[SyncVar]
-    //public int[] tria;
     public GameObject StepChild;  //to get a position  and rotation
     public GameObject meshF;
     public ARPlaneManager planeManager;
-    //public ARMeshManager m_MeshManager;
-    public MeshFilter meshFilterr;
     public Material mat;
-    //float width = 1;
-    //float height = 1;
-    //ARPlaneManager m_ARPlaneManager;
     ARPlane planeNew;
     public Text debug;
-    int idk;
-    Vector3 smt;
-    Quaternion identity;
-    Transform any;
-    //bool isit = true;
-    Vector2[] smt2;
-    List<Vector2> list;
     Unity.Collections.NativeArray<Vector2> vectors;
     PlayerObject playerobjscript;
     Vector3[] pontok = new Vector3[11];
     private GameObject origo;
     private ARTrackedImageManager aRTrackedImageManager;
     public GameObject worldMap;
-    private Vector3 newPlanePos;
-    private Vector3 newPlaneRot;
-    //public GameObject canvas;
-    //float speed = 100.0f;
-    // Start is called before the first frame update
+    
     private ARTrackedImage Image;
-
-    //PlayerObject playerobjscript;
+    public bool watchTheimage = true;
+    public bool samePos = false;
+    public float PosDiff = 0.5f;
+    public int RotDiff = 40;
+  public bool readImage = false;
+   
 
     //tuner.EnableLocalEndpoint();
     void Start()
@@ -105,31 +85,25 @@ public class getplanes : NetworkBehaviour
             planeManager.planesChanged += OnPlanesChanged;
             Debug.Log("Subscribed to event");
             aRTrackedImageManager.trackedImagesChanged += OnImageChanged;
-            CmdAskForPlanesFromServerOnStart(planesDict.Count);
-            // CmdAskForPlanesFromServerOnStart();
+            //CmdAskForPlanesFromServerOnStart(planesDict.Count);
+            planeManager.enabled = false;
+
+
+#if UNITY_EDITOR
+
+
+            readImage = true;
+            CmdAskForPlanesFromServerOnStart(this.gameObject, planesDict.Count);
+            Debug.Log("asked for planes on start");
+            planeManager.enabled = true;
+
+#endif
+
         }
-        // CmdAskForPlanesFromServerOnStart(connectionToClient);
+       
 
     }
 
-    /// <summary>
-    /// origo manuálisan és manuálisan rárakni a worldmapet
-    /// nézni hogy bemegy-e alá
-    /// nézni hogy megtalálja-e a kockát
-    /// mekkora a kocka
-    /// planes dictionary check if we can access it, then write addRpc for that scenario
-    /// im,portant thing is to make it work
-    /// check the vertice dict from two client 
-    /// </summary>
-    /// <param name="args"></param>
-
-    /*public void GetPlanesFromServer()
-     {
-         if (!isLocalPlayer)
-             return;
-         CmdAskForPlanesFromServerOnStart(connectionToClient);
-     }
-    */
 
     public void OnImageChanged(ARTrackedImagesChangedEventArgs args)
     {
@@ -141,8 +115,13 @@ public class getplanes : NetworkBehaviour
                 {
                     worldMap.transform.position = TrackedImage.transform.position;
                     worldMap.transform.rotation = TrackedImage.transform.rotation;
-                    Image = TrackedImage;
+
                     Debug.Log("Picture is seen and name: " + TrackedImage.name);
+                    readImage = true;
+                    CmdAskForPlanesFromServerOnStart(this.gameObject, planesDict.Count);
+                    planeManager.enabled = true;
+                   
+                    
                 }
 
 
@@ -191,68 +170,18 @@ public class getplanes : NetworkBehaviour
             Debug.Log("In callforplanes localPlayer");
             Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
             Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);
-            CmdAskForPlanesFromServerOnStart(planesDict.Count);
+            CmdAskForPlanesFromServerOnStart(this.gameObject ,planesDict.Count);
         }
 
 
-        /*  if(isServer)
-          {
-              Debug.Log("In callforplanes as server");
-              Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
-              Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);
-
-          }*/
-        // CmdAskForPlanesFromServerOnStart();
-
-
-        /* foreach (ARPlane plane in planeManager.trackables)
-         {
-             vectors = plane.boundary;
-
-             Vector3[] vertices = new Vector3[plane.boundary.Length];
-             int i;
-             for (i = 0; i < plane.boundary.Length; i++)
-             {
-                 vertices[i] = new Vector3(vectors[i].x, 0, vectors[i].y);
-             }
-
-             string json = JsonConvert.SerializeObject(vertices);
-             RpcAddPlaneToClient(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
-         }*/
+      
 
     }
 
-    /* void OnPlayerConnected()
-     {
-         Debug.Log("OnPlayerConnected vertices Count on Server when asking for the entries: " + verticesDict.Count);
-         // CmdAskForPlanesFromServerOnStart();
-         foreach (ARPlane plane in planeManager.trackables)
-         {
-             vectors = plane.boundary;
-
-             Vector3[] vertices = new Vector3[plane.boundary.Length];
-             int i;
-             for (i = 0; i < plane.boundary.Length; i++)
-             {
-                 vertices[i] = new Vector3(vectors[i].x, 0, vectors[i].y);
-             }
-
-             string json = JsonConvert.SerializeObject(vertices);
-             RpcAddPlaneToClient(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
-         }
-     }*/
-
-
-    /*  public  void OnServerConnect(NetworkConnection Conn)
-      {
-          if (Conn.hostId >= 0)
-          {
-              Debug.Log("New Player has joined");
-          }
-      }*/
+    
 
     [Command]
-    public void CmdAskForPlanesFromServerOnStart(int PlanesCount)
+    public void CmdAskForPlanesFromServerOnStart(GameObject target, int PlanesCount)
     {
 
         if (isServer)
@@ -264,61 +193,32 @@ public class getplanes : NetworkBehaviour
             if(PlanesCount<1)
             foreach (var entry in verticesDict)
             {
-                RpcAddPlaneToClient(entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
+                    NetworkIdentity opponentIdentity = target.GetComponent<NetworkIdentity>();
+                    // RpcAddPlaneToClient(entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
+                    TargetCreatePlanesFromServer(opponentIdentity.connectionToClient, entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
+
             }
-           
+
         }
       
-        /* Debug.Log("Writing out number of planes: " + planesDict.Count);
+        
+    }
 
-         foreach ( var entry in planesDict)
-         {
-             //RpcAddPlaneToClient(entry.Value.gameObject.GetComponent<MeshFilter>().mesh.vertices, entry.Value.gameObject.transform.position, entry.Value.gameObject.transform.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
-         }
-        */
-        /*Debug.Log("asking plane informations from server");
-        foreach (ARPlane plane in planeManager.trackables)
-        {
-            vectors = plane.boundary;
-
-            Vector3[] vertices = new Vector3[plane.boundary.Length];
-            int i;
-            for (i = 0; i < plane.boundary.Length; i++)
-            {
-                vertices[i] = new Vector3(vectors[i].x, 0, vectors[i].y);
-            }
-
-            string json = JsonConvert.SerializeObject(vertices);
-            RpcAddPlaneToClient(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
-        }
-
-        Debug.Log(" vertices Count on Server when asking for the entries: " + verticesDict.Count);
-       // TargetChecking(connectionToClient, verticesDict.Count);
-        foreach (var entry in verticesDict)
-        {
-            Debug.Log("There was something on the server");
-           
-            RpcAddPlaneToClient(entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
-            //TargetCreatePlanesFromServer(connectionToClient, entry.Value.Jvertice, entry.Value.position, entry.Value.rotation, entry.Value.id, entry.Value.boundarylength, entry.Value.playerNetID);
-        }*/
+    [TargetRpc]
+    public void TargetCreatePlanesFromServer(NetworkConnection target, string json, Vector3 position, Quaternion rotation, int id, int boundarylength, uint playerNetID)
+    {
+        Debug.Log("sorry");
+        var vertices = JsonConvert.DeserializeObject<List<Vector3>>(json);
+        Vector3[] verticess = vertices.ToArray();
+        AddPlane(verticess, position, rotation, id, boundarylength, playerNetID);
 
     }
 
-    /*  [TargetRpc]
-      public void TargetCreatePlanesFromServer(NetworkConnection target, string json, Vector3 position, Quaternion rotation, int id, int boundarylength, NetworkInstanceId playerNetID)
-      {
-          var vertices = JsonConvert.DeserializeObject<List<Vector3>>(json);
-          Vector3[] verticess = vertices.ToArray();
-          AddPlane(verticess, position, rotation, id, boundarylength, playerNetID);
-
-      }
-
-      [TargetRpc]
-      public void TargetChecking(NetworkConnection target, int idk)
-      {
-          Debug.Log("I'm back name  :" + target + " , and verticesnumber " + idk);
-      }*/
-
+    [TargetRpc]
+    public void TargetChecking(NetworkConnection target, int idk)
+    {
+        Debug.Log("I'm back name  :" + target + " , and verticesnumber " + idk);
+    }
 
 
 
@@ -339,7 +239,8 @@ public class getplanes : NetworkBehaviour
 
         foreach (ARPlane plane in planeManager.trackables)
          {
-             CmdRemoveMapInfo(plane.GetInstanceID(), playerNetID);
+            // CmdRemoveMapInfo(plane.GetInstanceID(), playerNetID);
+            RemovePlane(plane.GetInstanceID(), playerNetID);
          }
     }
 
@@ -388,21 +289,7 @@ public class getplanes : NetworkBehaviour
                 }
 
                 string json = JsonConvert.SerializeObject(vertices);
-                if(worldMap==null)
-                 {
-                     worldMap = GameObject.Find("WorldMap");
-                     Debug.Log("Trying to find worldmap");
-                    newPlanePos = plane.transform.position - worldMap.transform.position;
-                    //newPlanePos = plane.transform.InverseTransformPoint(worldMap.transform.position);
-                    newPlaneRot = plane.transform.InverseTransformDirection(worldMap.transform.rotation.eulerAngles);
-                }
-                 else
-                 {
-                    newPlanePos = plane.transform.position - worldMap.transform.position;
-                    //newPlanePos = plane.transform.InverseTransformPoint(worldMap.transform.position);
-                    newPlaneRot = plane.transform.InverseTransformDirection(worldMap.transform.rotation.eulerAngles);
-                   // Vector3 cameraRelative = cam.InverseTransformPoint(transform.position);
-                }
+               
 
                 StepChild.transform.position = plane.transform.position;
                 StepChild.transform.rotation = plane.transform.rotation;
@@ -410,7 +297,7 @@ public class getplanes : NetworkBehaviour
                 // CmdAddMapInfo(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
                 // CmdAddPlaneToServer(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
                  CmdAddMapInfo(json, StepChild.transform.localPosition, StepChild.transform.localRotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
-                CmdAskForPlanesFromServerOnStart(planesDict.Count);
+                //CmdAskForPlanesFromServerOnStart(planesDict.Count);
                // StepChild.transform.parent = null;
                 //// CmdAddMapInfo(json, plane.transform.position, plane.transform.rotation, plane.GetInstanceID(), plane.boundary.Length, playerNetID);
                 //CmdCreatePlaneFromData(json, plane.transform.position, Quaternion.Euler(newPlaneRot), plane.GetInstanceID(), plane.boundary.Length, playerNetID);
@@ -426,42 +313,31 @@ public class getplanes : NetworkBehaviour
 
         if (isLocalPlayer)
         {
+           
+                // Debug.Log("Update was called by boundaryChanged");
+                //Debug.Log("PlanesUpdated");
+                vectors = eventArgs.plane.boundary;
 
-            // Debug.Log("Update was called by boundaryChanged");
-            //Debug.Log("PlanesUpdated");
-            vectors = eventArgs.plane.boundary;
+                Vector3[] vertices = new Vector3[eventArgs.plane.boundary.Length];
+                int i;
+                for (i = 0; i < eventArgs.plane.boundary.Length; i++)
+                {
+                    vertices[i] = new Vector3(vectors[i].x, 0, vectors[i].y);
+                }
 
-            Vector3[] vertices = new Vector3[eventArgs.plane.boundary.Length];
-            int i;
-            for (i = 0; i < eventArgs.plane.boundary.Length; i++)
-            {
-                vertices[i] = new Vector3(vectors[i].x, 0, vectors[i].y);
-            }
+                string json = JsonConvert.SerializeObject(vertices);
+                /* Debug.Log("In updatePlaneEvent as client");
+                 Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
+                 Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);*/
 
-            string json = JsonConvert.SerializeObject(vertices);
-           /* Debug.Log("In updatePlaneEvent as client");
-            Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
-            Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);*/
-            if (worldMap == null)
-            {
-                worldMap = GameObject.Find("WorldMap");
-                Debug.Log("Trying to find worldmap");
-                newPlanePos = eventArgs.plane.transform.position - worldMap.transform.position;
-                newPlaneRot = eventArgs.plane.transform.InverseTransformDirection(worldMap.transform.rotation.eulerAngles);
-            }
-            else
-            {
-                newPlanePos = eventArgs.plane.transform.position - worldMap.transform.position;
-                newPlaneRot = eventArgs.plane.transform.InverseTransformDirection(worldMap.transform.rotation.eulerAngles);
-
-            }
-            StepChild.transform.position = eventArgs.plane.transform.position;
-            StepChild.transform.rotation = eventArgs.plane.transform.rotation;
-           // StepChild.transform.parent = worldMap.transform;
-            // CmdUpdateMapInfo(json, eventArgs.plane.transform.position, eventArgs.plane.transform.rotation, eventArgs.plane.GetInstanceID(), eventArgs.plane.boundary.Length, playerNetID);
-            CmdUpdateMapInfo(json, StepChild.transform.localPosition, StepChild.transform.localRotation, eventArgs.plane.GetInstanceID(), eventArgs.plane.boundary.Length, playerNetID);
-           // CmdAskForPlanesFromServerOnStart();
-           // StepChild.transform.parent = null;
+                StepChild.transform.position = eventArgs.plane.transform.position;
+                StepChild.transform.rotation = eventArgs.plane.transform.rotation;
+                // StepChild.transform.parent = worldMap.transform;
+                // CmdUpdateMapInfo(json, eventArgs.plane.transform.position, eventArgs.plane.transform.rotation, eventArgs.plane.GetInstanceID(), eventArgs.plane.boundary.Length, playerNetID);
+                CmdUpdateMapInfo(json, StepChild.transform.localPosition, StepChild.transform.localRotation, eventArgs.plane.GetInstanceID(), eventArgs.plane.boundary.Length, playerNetID);
+                // CmdAskForPlanesFromServerOnStart();
+                // StepChild.transform.parent = null;
+            
         }
     }
 
@@ -472,13 +348,43 @@ public class getplanes : NetworkBehaviour
 
         if (isServer)
         {
-            string verticesid = id.ToString() + playerNetID.ToString();
-            if (verticesDict.ContainsKey(verticesid))
+            foreach (var entry in verticesDict)
             {
-                Debug.Log("New Map Info existed already");
+                if (entry.Value.playerNetID != playerNetID)
+                {
+                    if ((entry.Value.position - position).magnitude < PosDiff && Quaternion.Angle(entry.Value.rotation, rotation) < RotDiff)
+                    {
+                        
+                            Debug.Log("I wouldnt add this ");
+                            samePos = true;
+                            break;
+                        }
+                }
+
+
+
+
+                ///Let's check if it's appr. the same
+                /////if yes, then drop the nwe one, becuse its more efficient probably
+                ///if no, go on with the thingie
+                /////cant use PositionsAreApproximatelyEqual(List<Vector3>, List<Vector3>, Single)
+                ///because we don't have planes, only data's
+                ///we cant have planes in here
+                ///we could check the difference with different numbers in different directions
             }
-            else
+
+
+            if (!samePos)
             {
+                Debug.Log("I was kept and added");
+                string verticesid = id.ToString() + playerNetID.ToString();
+                if (verticesDict.ContainsKey(verticesid))
+                {
+                    Debug.Log("New Map Info existed already");
+                }
+            
+                else
+                 {
                 /* foreach (var entry in verticesDict)
                  {
                      Debug.Log("Position of the vertices until now: " + entry.Value.position);
@@ -499,8 +405,14 @@ public class getplanes : NetworkBehaviour
                 Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
                 Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);*/
                 RpcAddPlaneToClient(json, position, rotation, id, boundarylength, playerNetID);
+                 }
             }
-        }
+            else
+                samePos = false;
+        
+        
+        
+    }
 
     }
 
@@ -525,23 +437,75 @@ public class getplanes : NetworkBehaviour
        }
     }
 
+    public bool PositionApprSame(Vector3 Pos, Vector3 entryPos, float difference)
+    {
+        if (Mathf.Abs(Pos.x) - difference < Mathf.Abs(entryPos.x) || Mathf.Abs(entryPos.x) < Mathf.Abs(Pos.x) + difference)
+        {
+            if (Mathf.Abs(Pos.y) - difference < Mathf.Abs(entryPos.y) || Mathf.Abs(entryPos.y) < Mathf.Abs(Pos.y) + difference)
+            {
+                if (Mathf.Abs(Pos.z) - difference < Mathf.Abs(entryPos.z) || Mathf.Abs(entryPos.z) < Mathf.Abs(Pos.z) + difference)
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
+        else
+            return false;
+
+
+    }
+
+    public bool RotationApprSame(Quaternion Rot, Quaternion entryRot, float difference)
+    {
+        return true;
+    }
+
     [Command]
     public void CmdUpdateMapInfo(string json, Vector3 position, Quaternion rotation, int id, int boundarylength, uint playerNetID)
     {
-       if (isServer)
-       {
+        if (isServer)
+        {
 
             foreach (var entry in verticesDict)
-            {
-                ///Let's check if it's appr. the same
-                /////if yes, then drop the nwe one, becuse its more efficient probably
-                ///if no, go on with the thingie
-                /////cant use PositionsAreApproximatelyEqual(List<Vector3>, List<Vector3>, Single)
-                ///because we don't have planes, only data's
-                ///we cant have planes in here
-                ///we could check the difference with different numbers in different directions
-            }
+             {
+                if (entry.Value.playerNetID != playerNetID)
+                {
+                    if ((entry.Value.position - position).magnitude < PosDiff && Quaternion.Angle(entry.Value.rotation, rotation) < RotDiff)
+                    {
+                       
 
+                        //if (PositionApprSame(position, entry.Value.position, PosDiff))
+                        //{
+                        Debug.Log("I would leave out this one");
+                        samePos = true;
+                        break;
+                        /*string Uverticesid = id.ToString() + playerNetID.ToString();
+                        if (verticesDict.ContainsKey(Uverticesid))
+                        {
+                            verticesDict.Remove(Uverticesid);
+                            RpcRemovePlaneFromClient(id, playerNetID);
+                        }
+                        else
+                        {
+                            Debug.Log("Tried to Remove a Map Info that didn't exist");
+                        }*/
+
+                    }
+                }
+            }
+            ///Let's check if it's appr. the same
+            /////if yes, then drop the nwe one, becuse its more efficient probably
+            ///if no, go on with the thingie
+            /////cant use PositionsAreApproximatelyEqual(List<Vector3>, List<Vector3>, Single)
+            ///because we don't have planes, only data's
+            ///we cant have planes in here
+            ///we could check the difference with different numbers in different directions
+             
+             if (!samePos)
+             {
+            Debug.Log("i was kept and updated");
             string verticesid = id.ToString() + playerNetID.ToString();
             if (verticesDict.ContainsKey(verticesid))
             {
@@ -563,9 +527,9 @@ public class getplanes : NetworkBehaviour
                     Debug.Log("Theres a plane un update");
                 }*/
 
-               /* Debug.Log("In AddCmd as Server");
-                Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
-                Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);*/
+                /* Debug.Log("In AddCmd as Server");
+                 Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
+                 Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);*/
                 RpcUpdatePlaneOnClient(json, position, rotation, id, boundarylength, playerNetID);
                 /* }
                  else
@@ -574,7 +538,26 @@ public class getplanes : NetworkBehaviour
             else
             {
                 Debug.Log("Tried to Update Map Info that didn't exist");
+               /* verticesid = id.ToString() + playerNetID.ToString();
+
+                PlaneData pData;
+
+                pData.position = position;
+                pData.rotation = rotation;
+                pData.Jvertice = json;
+                pData.id = id;
+                pData.boundarylength = boundarylength;
+                pData.playerNetID = playerNetID;
+
+                verticesDict.Add(verticesid, pData);
+
+
+                RpcAddPlaneToClient(json, position, rotation, id, boundarylength, playerNetID);*/
             }
+     
+            }
+            else
+                samePos = false;
         }
 
     }
@@ -618,16 +601,23 @@ public class getplanes : NetworkBehaviour
 
             if (planesDict[idtoDict] != null)
             {
+                planesDict[idtoDict].transform.parent = null;
                 Destroy(planesDict[idtoDict]);
-                planesDict.Remove(idtoDict);
+                if (planesDict[idtoDict] != null)
+                    planesDict.Remove(idtoDict);
+                else
+                    Debug.Log("Nem volt mit eltavolitani");
             }
         }
     }
 
     public void UpdatePlane(Vector3[] vertices, Vector3 position, Quaternion rotation, int id, int boundarylength, uint playerNetID)
     {
-        //if (isLocalPlayer)
+        //if (readImage)
         //{
+            Debug.Log("im in update");
+            //if (isLocalPlayer)
+            //{
             /*Debug.Log("In UpdatePlane as client");
             Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
             Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);*/
@@ -659,19 +649,23 @@ public class getplanes : NetworkBehaviour
             }
             else
                 Debug.Log("Tried to update a plane that didn't exist");
-        //}
-
+            //}
+       // }
     }
 
     public void AddPlane(Vector3[] vertices, Vector3 position, Quaternion rotation, int id, int boundarylength, uint playerNetID)
     {
-       // if (isLocalPlayer)
+       // if (readImage)
        // {
-           /* Debug.Log("In Add as Clihet");
-            Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
-            Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);*/
+            Debug.Log("im in add plane");
+            // if (isLocalPlayer)
+            // {
+            /* Debug.Log("In Add as Clihet");
+             Debug.Log("asking plane informations from server, number of planes in Planesdict: " + planesDict.Count);
+             Debug.Log("asking plane informations from server, number of planes inverticesdict: " + verticesDict.Count);*/
             ARAnchor anchor = null;
             string idtoDict = id.ToString() + playerNetID.ToString();
+
 
             Mesh mesh = new Mesh();
             if (planesDict.ContainsKey(idtoDict))
@@ -686,19 +680,20 @@ public class getplanes : NetworkBehaviour
             if (worldMap != null)
             {
                 newMeshF.transform.parent = worldMap.transform;
-                Debug.Log("Parenting it, child of worldMap: "+worldMap.transform.childCount.ToString());
+                Debug.Log("Parenting it, child of worldMap: " + worldMap.transform.childCount.ToString() + " planesDict count: " + planesDict.Count);
             }
             else
             {
-                worldMap = GameObject.Find("WorldMap");
-                if (worldMap != null)
+                
+                while (worldMap != null)
                 {
-                    newMeshF.transform.parent = worldMap.transform;
-                    Debug.Log("did it");
+                worldMap = GameObject.Find("WorldMap");
+                newMeshF.transform.parent = worldMap.transform;
+                    Debug.Log("trying to locate worldmap");
                 }
-                Debug.Log("trying");
+               
             }
-            planesDict.Add(idtoDict, newMeshF);
+            
             if (boundarylength > 2)
             {
                 int[] tria = new int[3 * (boundarylength - 2)];
@@ -718,7 +713,8 @@ public class getplanes : NetworkBehaviour
                 newMeshF.transform.localPosition = position;
                 newMeshF.transform.localRotation = rotation;
                 anchor = newMeshF.GetComponent<ARAnchor>();
-                if (anchor == null)
+            planesDict.Add(idtoDict, newMeshF);
+            if (anchor == null)
                 {
                     anchor = newMeshF.AddComponent<ARAnchor>();
                     /*if (anchor != null)
@@ -727,8 +723,9 @@ public class getplanes : NetworkBehaviour
                     }*/
                 }
                 m_Anchors.Add(anchor);
-           // }
-        }
+                // }
+            }
+       // }
     }
     void Update()
     {

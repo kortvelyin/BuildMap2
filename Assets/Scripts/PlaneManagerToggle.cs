@@ -10,11 +10,12 @@ public class PlaneManagerToggle : NetworkBehaviour
     public ARPlaneManager planeManager;
     private ARTrackedImageManager aRTrackedImageManager;
     public GameObject worldMap;
+    private getplanes gpscript;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        gpscript = GetComponent<getplanes>();
         //if (isLocalPlayer)
             planeManager = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();
         if (planeManager != null)
@@ -40,9 +41,21 @@ public class PlaneManagerToggle : NetworkBehaviour
                     worldMap.transform.rotation = TrackedImage.transform.rotation;
 
                     Debug.Log("Picture is seen and name: " + TrackedImage.name);
-                    SwitchOffPlaneManager();
+                    planeManager.enabled = true;
+                   // gpscript.CmdAskForPlanesFromServerOnStart(gpscript.planesDict.Count);
                 }
-                
+
+
+                /*foreach (var TrackedImage in args.updated)
+                 {
+                     if (TrackedImage == Image)
+                     {
+                         worldMap.transform.position = TrackedImage.transform.position;
+                         worldMap.transform.rotation = TrackedImage.transform.rotation;
+
+                         Debug.Log("Picture is seen and name: " + TrackedImage.name);
+                     }
+                 }*/
             }
         }
 

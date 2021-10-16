@@ -14,6 +14,7 @@ public class PlayerObject : NetworkBehaviour
    
     public GameObject spawned;
     private NetworkConnection conn;
+    public GameObject[] players;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +28,27 @@ public class PlayerObject : NetworkBehaviour
        
         spawner = FindObjectOfType<ObjectSpawner>();
 
-
+       
     }
    
-   
+
+    [ClientRpc]
+    public void RpcButton ()
+    {
+        playerButton();
+    }
+
+   public void playerButton()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach(GameObject player in players)
+        {
+            player.transform.Find("PlayerButtons").gameObject.SetActive(false);
+        }
+        transform.Find("PlayerButtons").gameObject.SetActive(true);
+
+    }
    
     [Command]
     public void CmdSpawnMyUnit()
@@ -39,6 +57,8 @@ public class PlayerObject : NetworkBehaviour
         //NetworkServer.Spawn(obj);
         //myPlayerUnit = obj;
         NetworkServer.Spawn(obj, conn);
+        RpcButton();
+       
     }
     [System.NonSerialized]
     public bool once = false;
