@@ -31,6 +31,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3235804856531163047, guid: ea457ee30e743c8488a2a1bb6ae2e1a4, type: 3}
+      propertyPath: m_Name
+      value: worldMapbutton
+      objectReference: {fileID: 0}
     - target: {fileID: 3771123828951753904, guid: ea457ee30e743c8488a2a1bb6ae2e1a4, type: 3}
       propertyPath: m_RootOrder
       value: 0

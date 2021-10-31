@@ -35,18 +35,19 @@ public class PlayerObject : NetworkBehaviour
     [ClientRpc]
     public void RpcButton ()
     {
-        playerButton();
+        Debug.Log("in RpcButton");
+       // playerButton();
     }
 
    public void playerButton()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
 
-        foreach(GameObject player in players)
+       /* foreach(GameObject player in players)
         {
             player.transform.Find("PlayerButtons").gameObject.SetActive(false);
         }
-        transform.Find("PlayerButtons").gameObject.SetActive(true);
+        transform.Find("PlayerButtons").gameObject.SetActive(true);*/
 
     }
    
@@ -57,7 +58,7 @@ public class PlayerObject : NetworkBehaviour
         //NetworkServer.Spawn(obj);
         //myPlayerUnit = obj;
         NetworkServer.Spawn(obj, conn);
-        RpcButton();
+        //RpcButton();
        
     }
     [System.NonSerialized]

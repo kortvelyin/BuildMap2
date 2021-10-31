@@ -1,0 +1,13 @@
+nézhetjuk hogy a pontok  benne vannak-e a meshben
+de az nem feltétlen jó, mert mi van ha csak a közelében van
+kéne vmi egységes dolog ami a pontokközelségét nézi 
+kphoz közeli és pontokhoz közeli dolgok
+also ha egy nincs hozzá közel , akkor megtartjuk
+pontokat pontokhoz, ha talál olyat ami közel van, akkor végig nézi a pontokat hogy azokmennyire vannak távol
+a távolságot nézhetjük a kp hoz
+néze egy pontot ami közeli, veszed a távolságot a kptól és arra leméred az összes többi pontot
+de elõszor forgast nezel 
+számol tavolsaghoz nezed és ami nem illik bele akkor megtartja
+
+
+look at abs numbers!!!!

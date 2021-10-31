@@ -1,0 +1,740 @@
+Using pre-set license
+Built from '2020.3/release' branch; Version is '2020.3.1f1 (77a89f25062f) revision 7841951'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Education; OS build 19042.1288; Version 2009; 64bit' Language: 'hu' Physical Memory: 32715 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.1f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/kortvelyin00/Documents/Unity projects/BuildMap2
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+61061
+Successfully changed project path to: C:/Users/kortvelyin00/Documents/Unity projects/BuildMap2
+C:/Users/kortvelyin00/Documents/Unity projects/BuildMap2
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 22.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.1f1 (77a89f25062f)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.1f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/kortvelyin00/Documents/Unity projects/BuildMap2/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1650 (ID=0x1f0a)
+    Vendor:   
+    VRAM:     3961 MB
+    Driver:   27.21.14.5671
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.1f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.1f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56416
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001665 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 21.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.402 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.005294 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.605 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1584 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 73.5 MB.
+System memory in use after: 73.6 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2008.
+Total: 1.586100 ms (FindLiveObjects: 0.201000 ms CreateObjectMapping: 0.042100 ms MarkObjects: 1.290500 ms  DeleteObjects: 0.051500 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/XR/XRGeneralSettings.asset
+  artifactKey: Guid(d4ebb1a57d267af40b09ba597577fcfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/XR/XRGeneralSettings.asset using Guid(d4ebb1a57d267af40b09ba597577fcfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a24b0fefc69f81de7a8750d9b96aacdb') in 0.028754 seconds
+  Import took 0.031114 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.357664 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000271 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002182 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010856 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000235 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001895 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.062781 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000220 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001826 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017178 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000230 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002098 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017844 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000242 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002078 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018766 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000223 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001887 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.029639 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000226 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001938 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.025196 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000231 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002006 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017113 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000187 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001680 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.027470 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000225 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001943 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.020941 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000184 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001646 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.023242 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000195 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001730 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017346 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000177 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001613 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021101 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000208 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001837 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012771 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000176 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001665 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018380 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000336 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002821 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021328 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000215 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001811 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017993 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000241 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002164 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017076 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000182 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001658 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016837 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000269 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002194 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.019438 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000230 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002003 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018239 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000232 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001888 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017488 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000234 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002167 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016856 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000231 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001982 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016304 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000180 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001644 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.020776 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000219 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001951 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018364 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000240 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002154 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016290 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000232 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002003 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017100 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000192 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001678 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016835 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000237 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002022 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.019757 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000178 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001894 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017907 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000180 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001673 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017216 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000188 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016930 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000309 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002513 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017265 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000209 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001728 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.019393 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000294 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002333 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.019689 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000262 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001944 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016918 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000176 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001613 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.020407 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000181 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001698 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017645 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000222 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.020973 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000224 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001897 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017661 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000216 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001847 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017289 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000216 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001859 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018089 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000219 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017237 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000199 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001744 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021017 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000241 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002026 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017039 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000224 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001866 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017440 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000214 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001851 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018117 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000229 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001994 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018013 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000251 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002142 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.020304 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000248 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002079 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017533 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000190 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018470 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000221 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002209 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017511 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000190 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001730 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017578 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000210 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001855 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018926 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000190 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002015 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017580 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000179 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001668 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017626 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000179 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001653 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017476 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000182 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001684 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017888 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000179 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001656 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017738 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000336 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002654 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.020631 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000352 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002722 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017675 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000228 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001838 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016889 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000194 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001745 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021150 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000228 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001951 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.020931 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000182 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021376 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000191 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001777 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017588 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000282 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002196 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.020050 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000211 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.023475 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000257 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002113 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.031930 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000284 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002300 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017671 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000214 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.001941 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.019715 seconds.
+  path: Packages/com.unity.nuget.newtonsoft-json/Runtime
+  artifactKey: Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.nuget.newtonsoft-json/Runtime using Guid(de1c7164adaf49d47b5de31c140713c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000285 seconds
+  ERROR: Build asset version error: packages/com.unity.nuget.newtonsoft-json/runtime.meta in SourceAssetDB has modification time of '2021-03-18T12:16:22Z' while content on disk has modification time of '0001-01-01T00:00:00Z'
+  Import took 0.002376 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

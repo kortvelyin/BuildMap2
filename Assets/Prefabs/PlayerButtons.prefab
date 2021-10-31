@@ -301,7 +301,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913886021381162210, guid: 532f7d33b1de96f4d91618b3ab92b786, type: 3}
+      - m_Target: {fileID: 1176427398242124153, guid: 532f7d33b1de96f4d91618b3ab92b786, type: 3}
         m_TargetAssemblyTypeName: getplanes, Assembly-CSharp
         m_MethodName: CallForThePlanes
         m_Mode: 1
